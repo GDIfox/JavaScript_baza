@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const basket = {
+            products: [
+                {
+                    name: 'Yamaha',
+                    cash: 5300,
+                    quantity: 5,
+                },
+                {
+                    name: 'Suzuki',
+                    cash: 4780,
+                    quantity: 3,
+                },
+                {
+                    name: 'Kawasaki',
+                    cash: 3950,
+                    quantity: 4,
+                },
+                {
+                    name: 'Honda',
+                    cash: 5200,
+                    quantity: 2,
+                }
+            ],
+
+            totalCash() {
+                return this.products.reduce(function (total, cartItem) {
+                    return total + cartItem.cash * cartItem.quantity
+                }, 0);
+            },
+
+            amountOfGoods() {
+                return this.products.reduce(function (total, cartItem) {
+                    return total + cartItem.quantity
+                }, 0);
+            },
+        }
+
+        alert(`Стоимость всех товаров: ${basket.totalCash()}`);
+        alert(`Всего товаров: ${basket.amountOfGoods()} единиц.`);
+
+    </script>
+</body>
+
+</html>
