@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var num = prompt('Введите число от 0 до 999');
+
+        function PoiskNum(num) {
+            const obj = {};
+
+            num = (parseInt(num, 10));
+            if (isNaN(num) || num > 999) {
+                console.log('Вы ввели некорректное значение');
+                return obj;
+            }
+
+            const numToStr = num.toString();
+            switch (numToStr.length) {
+                case 1:
+                    obj['единички'] = numToStr;
+                    break;
+                case 2:
+                    obj['десяточки'] = numToStr[0];
+                    obj['единички'] = numToStr[1];
+
+                    break;
+                case 3:
+                    obj['соточки'] = numToStr[0];
+                    obj['десяточки'] = numToStr[1];
+                    obj['единички'] = numToStr[2];
+
+                    break;
+            }
+            return obj;
+        }
+
+
+
+        alert(JSON.stringify(PoiskNum(num)));
+    </script>
+</body>
+
+</html>
